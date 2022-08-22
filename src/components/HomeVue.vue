@@ -1,18 +1,26 @@
 <template>
-    <div class="homehfud">
-        <h1>Home</h1>
+    <div>
+      <header-vue></header-vue>
+     <router-view></router-view>
+      <footer-vue></footer-vue>
     </div>
 </template>
 
 <script>
+import HeaderVue from './HeaderVue.vue';
+import FooterVue from './FooterVue.vue';
+
+
+
 export default {
-   name:'HomeVue'
+   name:'HomeVue',
+   components:{
+    HeaderVue,
+    FooterVue,
+
+}
 }
 </script>
 <style>
-h1{
 
-    color:red;
-    font-size:90px;
-}
 </style>

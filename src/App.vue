@@ -37,4 +37,10 @@ body{
   margin: 0 auto;
 
 }
+span{
+  color:#03ac13
+}
+section{
+  padding:60px 0px
+}
 </style>
