@@ -3,8 +3,9 @@ import App from './App.vue'
 import VueRouter from 'vue-router'
 import {routes} from './routes/route'
 import {store} from './store/store'
-
+import vuejquery from 'vue-jquery'
 Vue.use(VueRouter)
+Vue.use(vuejquery)
 
 Vue.config.productionTip = false
 

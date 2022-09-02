@@ -1,4 +1,5 @@
 <template>
+<div>
   <div class="question-container">
     <h1 class="question">{{ question.question }}</h1>
 
@@ -26,8 +27,13 @@
       <button @click="next" class="right" v-if="this.id < 5">
         <i class="fa-solid fa-angle-right"></i>
       </button>
-    </div>
+    </div>  
   </div>
+  <div class="result-btn" v-if="last">
+      <button @click="callResult">Show Result</button>
+    </div>
+</div>
+
 </template>
 <script>
   import { mapGetters } from "vuex";
@@ -35,11 +41,13 @@
     data() {
       return {
         picked:'',
-        score:0
+        score:0,
+        selected:'',
+        last:false,
       };
     },
     computed: {
-      ...mapGetters(["questionBank"]),
+      ...mapGetters(["questionBank",'wrongAnswers','rightAnswers']),
       question() {
         return this.questionBank.find(
           (item) => item.id == this.$route.params.id && item.name == "c++"
@@ -48,6 +56,7 @@
       id() {
         return parseInt(this.$route.params.id);
       },
+      
     },
   
     methods: {
@@ -63,18 +72,27 @@
         this.$router.push(`/c++/${this.id - 1}`);
       },
       changeEventHandler(event) {
+
+        if(this.id==5){
+          this.last=true
+        }
          this.picked=event.target.value;
 
          if(this.picked.toLocaleLowerCase()===this.question.answer.toLocaleLowerCase()){
-          console.log("Answer is correct " + this.score++)
+          this.$store.dispatch('setRightAnswers')
+          console.log("Answer is correct ")
          }else{
           console.log("Answer is wrong")
+          this.$store.dispatch('setWrongAnswers')
 
          }
         console.log(this.picked);
     
        
       },
+      callResult(){
+        this.$router.push('/result')
+      }
     },
   };
 </script>
@@ -179,5 +197,24 @@
     font-size: 20px;
     font-weight: 700;
     
+  }
+  .result-btn{
+    text-align:center;
+    margin-bottom:60px;
+  }
+  .result-btn button{
+    padding: 10px 30px;
+    border-radius: 30px;
+    background-color: transparent;
+    transition: all .5s;
+    cursor:pointer;
+    font-size:20px;
+    font-weight: 700;
+    color:#03ac13;
+    border: 2px solid #03ac13;
+  }
+  .result-btn button:hover{
+    background-color:#03ac13 ;
+    color: white;
   }
 </style>

@@ -4,6 +4,10 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
   state: {
+    rightAnswers:0,
+    wrongAnswers:0,
+    percentage:0,
+    totalQuestions:5,
     questionBank: [
       {
         name: "c++",
@@ -156,7 +160,41 @@ export const store = new Vuex.Store({
       },
     ],
   },
+  mutations:{
+    SET_WRONG_ANSWER(state){
+     if(state.wrongAnswers<5){
+      state.wrongAnswers+=1
+     }
+      console.log('calling')
+      console.log(state.wrongAnswers)
+    },
+    SET_RIGHT_ANSWERS(state){
+      if(state.rightAnswers<5){
+        state.rightAnswers+=1
+      }
+    },
+    SET_PERCENTAGE(state){
+      state.percentage=(state.rightAnswers/state.totalQuestions)*100
+    }
+  },
+  actions:{
+    setWrongAnswers({commit}){
+    commit("SET_WRONG_ANSWER")
+
+    },
+    setRightAnswers({commit}){
+      commit('SET_RIGHT_ANSWERS')
+    },
+    setPercentage({commit}){
+      commit('SET_PERCENTAGE')
+    }
+  }
+  ,
   getters: {
     questionBank: (state) => state.questionBank,
+    rightAnswers:(state)=>state.rightAnswers,
+    wrongAnswers:(state)=>state.wrongAnswers,
+    percentage:state=>state.percentage,
+    totalQuestions:state=>state.totalQuestions
   },
 });
