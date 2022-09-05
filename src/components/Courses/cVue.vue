@@ -188,7 +188,7 @@
   }
   .button-container button:hover{
     background: #03ac13;
-    border: 2px solid white;
+    
  
   }
   .button-container button:hover i{
@@ -198,6 +198,7 @@
   .button-container button i{
     font-size: 20px;
     font-weight: 700;
+    color: black;
     
   }
   .result-btn{

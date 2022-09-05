@@ -213,19 +213,19 @@ export const store = new Vuex.Store({
           "Which of the following is the correct syntax to redirect a url using JavaScript?",
         options: [
           {
-            text: "document.location='http://www.newlocation.com';",
+            text: "document.location= 'http://www.newlocation.com';",
             value: "A",
           },
           {
-            text: "browser.location='http://www.newlocation.com';",
+            text: "browser.location= 'http://www.newlocation.com';",
             value: "B",
           },
           {
-            text: "navigator.location='http://www.newlocation.com';",
+            text: "navigator.location= 'http://www.newlocation.com';",
             value: "C",
           },
           {
-            text: "window.location='http://www.newlocation.com';",
+            text: "window.location= 'http://www.newlocation.com';",
             value: "D",
           },
         ],
@@ -489,6 +489,7 @@ export const store = new Vuex.Store({
           },
         ],
         answer: "B",
+        picked:""
       },
     ],
   },
@@ -504,6 +505,7 @@ export const store = new Vuex.Store({
       if (state.rightAnswers < 5) {
         state.rightAnswers += 1;
       }
+      console.log(state.questionBank.picked)
     },
     SET_PERCENTAGE(state) {
       state.percentage = (state.rightAnswers / state.totalQuestions) * 100;

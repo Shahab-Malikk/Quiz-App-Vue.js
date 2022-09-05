@@ -47,7 +47,7 @@
       ...mapGetters(["questionBank", "wrongAnswers", "rightAnswers"]),
       question() {
         return this.questionBank.find(
-          (item) => item.id == this.$route.params.id && item.name == "c++"
+          (item) => item.id == this.$route.params.id && item.name == "js"
         );
       },
       id() {
@@ -60,10 +60,10 @@
         console.log(this.question.name);
       },
       next() {
-        this.$router.push(`/c++/${this.id + 1}`);
+        this.$router.push(`/js/${this.id + 1}`);
       },
       previous() {
-        this.$router.push(`/c++/${this.id - 1}`);
+        this.$router.push(`/js/${this.id - 1}`);
       },
       changeEventHandler(event) {
         if (this.id == 5) {

@@ -9,13 +9,13 @@
 <div class="link-container" @click="callCQuestions">
     C++
 </div>
-<div class="link-container">
+<div class="link-container" @click="callJsQuestions">
 JavaScript
 </div>
-<div class="link-container">
+<div class="link-container" @click="callPythonQuestions">
     Python
 </div>
-<div class="link-container">
+<div class="link-container" @click="callJavaQuestions">
     Java
 </div>
 </div>
@@ -29,13 +29,33 @@ computed:{
 ...mapGetters(["questionBank"]),
 cQuestions(){
   return this.questionBank.find(item=>item.id===1&& item.name.includes('c'))
-}
+},
+jsQuestions(){
+  return  this.questionBank.find(item=>item.id===1&& item.name.includes('js'))
+},
+pythonQuestions(){
+  return  this.questionBank.find(item=>item.id===1&& item.name.includes('python'))
+},
+javaQuestions(){
+  return  this.questionBank.find(item=>item.id===1&& item.name.includes('java'))
+},
+
 },
   methods:{
     callCQuestions(){
-      this.$router.push(`/${this.cQuestions.name}/${this.cQuestions.id}`)
-      
+      this.$router.push(`/c++/${this.cQuestions.id}`)
+    },
+    callJsQuestions(){
+      this.$router.push(`/js/${this.jsQuestions.id}`)
+      console.log(this.jsQuestions)
+    },
+    callPythonQuestions(){
+      this.$router.push(`/python/${this.pythonQuestions.id}`)
+    },
+    callJavaQuestions(){
+      this.$router.push(`/java/${this.javaQuestions.id}`)
     }
+    
   }
 };
 </script>
