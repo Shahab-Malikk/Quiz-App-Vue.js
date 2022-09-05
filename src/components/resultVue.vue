@@ -8,7 +8,7 @@
           <h3 class="ans-heading">Right Answers</h3>
           <p class="number">{{ rightAnswers }}</p>
         </div>
-        <div class="content-container">
+        <div class="content-container bottom">
           <h3 class="ans-heading">Wrong Answers</h3>
           <p class="number">{{ wrongAnswers }}</p>
         </div>
@@ -70,6 +70,43 @@
   .percentage-container{
     margin: 30px auto;
     
+  }
+
+
+  @media only screen and (max-width:768px){
+    .container{
+      width: 90%;
+      margin: 0 auto;
+
+    }
+    .result-container{
+      padding: 40px 20px;
+    }
+    .no-container{
+      margin-top: 30px;
+      flex-direction: column;
+    }
+
+    .content-container,.percentage-container{
+    width:100%;
+    height: 150px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+      rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    border-radius: 10px;
+    padding:30px 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+
+  }
+  .content-container.bottom{
+    margin-top: 30px;
+  }
+  .percentage-container{
+    margin-bottom: 0px;
+  }
   }
  
 </style>

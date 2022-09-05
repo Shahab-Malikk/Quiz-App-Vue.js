@@ -18,4 +18,11 @@ header{
 .logo span{
     color:#03ac13
 }
+
+@media only screen and (max-width:768px) {
+    .logo{
+        font-size:2.5em ;
+    }
+    
+}
 </style>

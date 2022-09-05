@@ -68,4 +68,17 @@ border-bottom: 1px solid rgb(235, 232, 232);
     color:#03ac13;
     border-bottom: 1px solid #03ac13;
 }
+@media only screen and (max-width: 768px) {
+  
+.options-container{
+  width:80%;
+}
+.link-container{
+  padding: 15px 5px;
+  font-size: 1.2em;
+}
+
+}
+
+
 </style>

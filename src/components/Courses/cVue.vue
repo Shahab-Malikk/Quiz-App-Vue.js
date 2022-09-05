@@ -108,6 +108,7 @@
   }
   .question{
     margin-bottom: 15px;
+    font-size: 1.4em;
   }
   .options-container {
     margin-bottom: 40px;
@@ -117,7 +118,7 @@
     position: relative;
     margin-bottom: 10px;
     cursor: pointer;
-    font-size: 22px;
+    font-size: 1.4em;
     margin-left: 35px;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -129,6 +130,7 @@
     cursor: pointer;
     height: 0;
     width: 0;
+    margin-left:10px;
   }
   .radioChecked {
     position: absolute;
@@ -216,5 +218,59 @@
   .result-btn button:hover{
     background-color:#03ac13 ;
     color: white;
+  }
+
+  @media only screen and (max-width: 768px) {
+    .question-container{
+      width: 90%;
+      margin:40px auto;
+    }
+    .question{
+      margin-bottom:20px;
+      font-size:1.3em;
+    }
+    .option{
+      font-size:1.3em;
+      margin-top:5px;
+    
+    }
+    .option input{
+      margin-left: 0px;
+    }
+    .radioChecked{
+      width:15px;
+      height: 15px;
+    }
+
+    .option .radioChecked:after {
+    top: 5px;
+    left: 5px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: white;
+  }
+  .button-container button{
+    width:25px;
+    height:25px;
+ 
+  }
+
+  .button-container button i{
+    font-size: 15px;
+    font-weight: 700;
+    
+  }
+  .button-container{
+  
+    column-gap: 10px;
+    
+  }
+  .button-container button:hover{
+    background: #03ac13;
+    border: 0px solid white;
+ 
+  }
+    
   }
 </style>
